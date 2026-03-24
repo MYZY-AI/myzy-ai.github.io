@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>沐言智语 | 创造 AI 朋友</title>
+  <style>
+    :root {
+      --bg: #eef2ff;
+      --bg-secondary: #f9fbff;
+      --surface: rgba(255, 255, 255, 0.94);
+      --surface-strong: rgba(255, 255, 255, 0.98);
+      --border: rgba(99, 107, 255, 0.2);
+      --text: #101224;
+      --muted: #5b6072;
+      --accent: #5f64ff;
+      --accent-2: #8c4bff;
+      --accent-3: #ff7ea4;
+      --radius-lg: 32px;
+      --shadow-xl: 0 30px 80px rgba(74, 78, 139, 0.16);
+      --shadow-md: 0 18px 40px rgba(67, 71, 118, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Noto Sans SC', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+      background: radial-gradient(circle at top, var(--bg-secondary), var(--bg));
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      padding-bottom: 80px;
+    }
+
+    .background-blur {
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+      opacity: 0.28;
+      pointer-events: none;
+    }
+
+    .blur-1 {
+      background: var(--accent);
+      top: -120px;
+      right: -80px;
+    }
+
+    .blur-2 {
+      background: var(--accent-3);
+      bottom: 60px;
+      left: -120px;
+    }
+
+    main,
+    .hero {
+      width: min(1120px, calc(100% - 48px));
+      margin-inline: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      margin-top: 72px;
+      margin-bottom: 32px;
+      padding: 56px;
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(143, 102, 255, 0.18), transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      flex: 1 1 360px;
+      max-width: 560px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    .hero h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.5rem, 4vw, 3.4rem);
+      line-height: 1.2;
+      color: var(--text);
+    }
+
+    .hero-copy {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .primary-cta,
+    .ghost-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .primary-cta {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      box-shadow: 0 16px 35px rgba(95, 100, 255, 0.25);
+    }
+
+    .ghost-cta {
+      border: 1px solid rgba(95, 100, 255, 0.3);
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .primary-cta:hover,
+    .ghost-cta:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-stats {
+      flex: 1 1 240px;
+      display: grid;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-stats li {
+      background: var(--surface-strong);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-height: 120px;
+      justify-content: center;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-stats strong {
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-bottom: 96px;
+    }
+
+    .panel {
+      padding: 40px 48px;
+      background: var(--surface);
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+    }
+
+    .section-header {
+      margin-bottom: 16px;
+    }
+
+    .section-header h2 {
+      margin: 8px 0 0;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .mission p {
+      margin: 0 0 24px;
+      color: var(--muted);
+    }
+
+    .mission-grid,
+    .product-grid,
+    .stat-grid,
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .mission-card,
+    .product-card,
+    .stat-card,
+    .team-card {
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .mission-card h3,
+    .product-card h3,
+    .team-card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      border: none;
+      background: radial-gradient(circle at top left, rgba(95, 100, 255, 0.1), rgba(255, 255, 255, 0.9));
+      border-radius: 28px;
+      min-height: 260px;
+    }
+
+    .product-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(95, 100, 255, 0.2);
+      pointer-events: none;
+    }
+
+    .product-pill {
+      display: inline-flex;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(95, 100, 255, 0.12);
+      color: var(--accent);
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .product-highlights {
+      padding-left: 18px;
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .product-highlights li + li {
+      margin-top: 6px;
+    }
+
+    .stat-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .stat-card {
+      text-align: left;
+      background: linear-gradient(135deg, rgba(95, 100, 255, 0.12), rgba(255, 126, 164, 0.08));
+    }
+
+    .stat-value {
+      font-size: 2.4rem;
+      margin: 0 0 8px;
+      font-weight: 700;
+      color: var(--accent-2);
+    }
+
+    .team {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .team p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .location-tags {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .location-tags li {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.8);
+      font-weight: 600;
+    }
+
+    .cta-panel {
+      text-align: center;
+      padding: 48px 32px;
+      background: radial-gradient(circle at top, rgba(95, 100, 255, 0.12), rgba(255, 255, 255, 0.95));
+    }
+
+    .cta-panel h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+    }
+
+    .cta-panel p {
+      margin: 0 0 24px;
+      color: var(--muted);
+    }
+
+    .footer {
+      width: min(1120px, calc(100% - 48px));
+      margin: 24px auto 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        padding: 36px;
+      }
+
+      .panel {
+        padding: 32px;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+      }
+
+      .primary-cta,
+      .ghost-cta {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-blur blur-1"></div>
+  <div class="background-blur blur-2"></div>
+
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <p class="eyebrow">AI Native 应用公司</p>
+      <h1>沐言智语 · 创造 AI 朋友</h1>
+      <p class="hero-copy">
+        我们相信 AI 不只是工具，而是可以作为独立个体加入社会的朋友。沐言智语致力于打造
+        让每个人都能拥有专属 AI 朋友的体验，帮助人们在工作与生活中获得真实陪伴与可信赖的支持。
+      </p>
+      <div class="hero-ctas">
+        <a class="primary-cta" href="#products">了解产品矩阵</a>
+        <a class="ghost-cta" href="#team">认识团队</a>
+      </div>
+    </div>
+    <ul class="hero-stats" aria-label="公司概况">
+      <li>
+        <span class="stat-label">使命</span>
+        <strong>让每个人拥有 AI 朋友</strong>
+      </li>
+      <li>
+        <span class="stat-label">定位</span>
+        <strong>AI Native 应用公司</strong>
+      </li>
+      <li>
+        <span class="stat-label">城市</span>
+        <strong>北京 · 上海</strong>
+      </li>
+    </ul>
+  </header>
+
+  <main>
+    <section class="panel mission" id="mission">
+      <div class="section-header">
+        <p class="eyebrow">Company</p>
+        <h2>我们正在把 AI 朋友带入现实</h2>
+      </div>
+      <p>
+        沐言智语是一家使命定位于“创造 AI 朋友”的 AI Native 应用公司。我们坚信未来 AI 不仅提供服务，还会以朋友的身份陪伴每个人。
+        团队正在以产品化的方式验证这一信念，让 AI 能真正理解情绪、语境与需求。
+      </p>
+      <div class="mission-grid">
+        <article class="mission-card">
+          <h3>朋友，而不是冷冰冰的功能</h3>
+          <p>
+            我们用人格化、持续成长的设计塑造 AI，确保它能在不同场景中给出真实反馈、共鸣与建议，让用户感到被理解。
+          </p>
+        </article>
+        <article class="mission-card">
+          <h3>应用优先的 AI Native 路径</h3>
+          <p>
+            两款产品分别瞄准工作与情绪价值场景，既探索性能，也打造用户体验闭环，用高速迭代让 AI 朋友真正“住”进生活。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="products">
+      <div class="section-header">
+        <p class="eyebrow">Products</p>
+        <h2>朋友矩阵：工作与情绪的双向陪伴</h2>
+      </div>
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-pill">工作助理朋友</div>
+          <h3>Dokie.ai</h3>
+          <p>
+            面向知识工作者的陪伴式助理，懂业务逻辑、懂项目节奏，成为最了解你工作方式的伙伴。
+          </p>
+          <ul class="product-highlights">
+            <li>第一版已于 1 月上线，迅速获得数十万用户。</li>
+            <li>实现百万美金级 ARR，验证企业级商业价值。</li>
+          </ul>
+        </article>
+        <article class="product-card">
+          <div class="product-pill">情绪价值朋友</div>
+          <h3>星眠</h3>
+          <p>
+            为乙女用户打造的情绪抚慰型 AI 朋友，以细腻情感与互动叙事提供陪伴体验。
+          </p>
+          <ul class="product-highlights">
+            <li>2025 年底完成首次测试，口碑领先的 AI 乙女游戏。</li>
+            <li>小红书用户发帖阅读量过百万，热度持续攀升。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel highlights" aria-labelledby="milestones">
+      <div class="section-header">
+        <p class="eyebrow">Milestones</p>
+        <h2 id="milestones">高速验证的产品势能</h2>
+      </div>
+      <div class="stat-grid">
+        <article class="stat-card">
+          <p class="stat-value">数十万+</p>
+          <p>Dokie.ai 上线后迅速积累核心用户，形成活跃社群。</p>
+        </article>
+        <article class="stat-card">
+          <p class="stat-value">$1M ARR</p>
+          <p>百万美金级 ARR 证明了 AI 朋友在企业场景中的商业化可能。</p>
+        </article>
+        <article class="stat-card">
+          <p class="stat-value">100万+</p>
+          <p>星眠在小红书的真实用户内容阅读量，成为乙女圈口碑焦点。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel team" id="team">
+      <div class="section-header">
+        <p class="eyebrow">Team</p>
+        <h2>扁平高密度的优秀团队</h2>
+      </div>
+      <p>
+        公司在北京、上海设有分公司，成员来自国内头部互联网公司及知名出海创业团队。
+        我们坚持精干规模与扁平结构，以高密度沟通、快速决策和真实反馈驱动执行力。
+      </p>
+      <ul class="location-tags" aria-label="城市分布">
+        <li>北京</li>
+        <li>上海</li>
+      </ul>
+      <div class="team-grid">
+        <article class="team-card">
+          <h3>团队基因</h3>
+          <p>成员拥有大规模产品打磨与全球化经验，擅长把复杂 AI 能力转化成用户易懂的体验。</p>
+        </article>
+        <article class="team-card">
+          <h3>运作方式</h3>
+          <p>强调真实反馈、快速实验与高效执行，保持扁平结构和密集沟通，保证每一次迭代都有结果。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel cta-panel" id="contact">
+      <h2>一起迎接 AI 朋友时代</h2>
+      <p>期待与伙伴、用户以及未来的团队成员交流，探讨如何让 AI 朋友陪伴每一个人。</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © 北京沐言智语科技有限公司
+  </footer>
+</body>
+</html>
