@@ -11,9 +11,11 @@ Run `python3 -m http.server 4173` from this directory, then visit http://localho
 - `index.html`: semantic content; Chinese default, English in `data-en` attributes.
 - `assets/site.css`: responsive layout and VI design tokens.
 - `assets/site.js`: language selection and mobile navigation; the page remains readable without JavaScript.
+- `assets/motion.js`: progressive scroll reveals, fine-pointer light-field response, and reading progress. Static mode is persistent and system reduced-motion is respected. No runtime dependencies or continuous rendering loop.
 - `assets/brand/`: original exported Figma brand assets. Do not redraw, distort or recolor the logo.
 - `assets/fonts/`: locally hosted open-source brand fonts and licenses. Chinese uses a system fallback unless HYQiHei is installed.
-- `og-card.png`: social preview image; `favicon.svg`: the official VI symbol.
+- `og-card.png`: social preview image; its 1200 × 630 source is `design/og-card.html`.
+- `favicon.svg`: the official VI symbol.
 
 ## Content sources (verified 2026-11-25)
 
