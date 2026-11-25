@@ -1,0 +1,123 @@
+/* Enhancement layer. The base page stays complete if this file or JS fails. */
+
+/* Long containers never conceal their children. Each content piece enters
+   only once, when its own edge reaches the viewport. */
+body.motion-ready [data-reveal].reveal-group {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+body.motion-ready .reveal-unit[data-reveal],
+body.motion-ready .reveal-unit[data-reveal-item] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s var(--ease), transform .85s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+body.motion-ready [data-reveal].reveal-group .reveal-unit[data-reveal-item] {
+  transition-delay: var(--reveal-delay, 0ms);
+}
+body.motion-ready .reveal-unit.is-visible[data-reveal],
+body.motion-ready .reveal-unit.is-visible[data-reveal-item] {
+  opacity: 1;
+  transform: none;
+}
+body.motion-ready .values li.reveal-unit.is-visible:hover {
+  transform: translateX(6px);
+  transition-delay: 0ms;
+}
+
+/* Only the light and orbital decorations move; the official symbol is fixed. */
+.motion-ready:not(.motion-paused) .orb-light {
+  transform-origin: 35% 30%;
+  animation: muyan-light 10s ease-in-out infinite;
+}
+.motion-ready.motion-fine:not(.motion-paused) .scene-ring {
+  animation: muyan-orbit 24s ease-in-out infinite;
+}
+.motion-ready.motion-fine:not(.motion-paused) .scene-satellite {
+  animation: muyan-satellite 9s ease-in-out infinite;
+}
+@keyframes muyan-light {
+  0%, 100% { opacity: .5; transform: scale(1) translate3d(-1%, 0, 0); }
+  50% { opacity: .9; transform: scale(1.055) translate3d(2%, -1%, 0); }
+}
+@keyframes muyan-orbit {
+  0%, 100% { transform: translate(calc(-50% - var(--pointer-x)), calc(-50% + var(--scene-scroll))) rotate(-37deg); }
+  50% { transform: translate(calc(-50% - var(--pointer-x)), calc(-50% + var(--scene-scroll))) rotate(-29deg); }
+}
+@keyframes muyan-satellite {
+  0%, 100% { transform: translate(calc(var(--pointer-x) * -1.4), calc(var(--pointer-y) * -1.4 + var(--scene-scroll))); }
+  50% { transform: translate(calc(var(--pointer-x) * -1.4 + 9px), calc(var(--pointer-y) * -1.4 + var(--scene-scroll) - 10px)); }
+}
+.scene-offscreen .hero-scene *,
+.motion-hidden .hero-scene * {
+  animation-play-state: paused !important;
+}
+
+/* Light follows the pointer within the existing button, without adding a
+   custom cursor, moving the hit target materially, or changing its label. */
+.motion-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.motion-button::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at var(--sheen-x, 50%) var(--sheen-y, 50%), #fff3, transparent 75%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s ease-out;
+}
+.motion-fine .motion-button {
+  translate: var(--magnet-x, 0px) var(--magnet-y, 0px);
+  transition: translate .22s var(--ease), background .25s, transform .25s var(--ease), box-shadow .25s;
+}
+.motion-fine .motion-button.is-magnetic::after { opacity: 1; }
+.motion-fine .motion-button:focus-visible { translate: 0 0; }
+.motion-ready .hero.is-ready .motion-button {
+  transition: opacity .7s var(--ease), translate .22s var(--ease), background .25s, transform .25s var(--ease), box-shadow .25s;
+  transition-delay: 0ms;
+}
+
+/* A small overscan keeps every edge covered across the bounded 24px travel. */
+.motion-ready.motion-fine .product-image > img {
+  transform: translate3d(0, var(--product-shift, 0px), 0) scale(1.075);
+  transition: transform .65s var(--ease);
+}
+.motion-ready.motion-fine .product-image.has-depth > img { will-change: transform; }
+.motion-ready.motion-fine .product-image:hover > img {
+  transform: translate3d(0, var(--product-shift, 0px), 0) scale(1.095);
+}
+
+/* A clear static state is shared by the manual switch and the system setting. */
+.motion-paused .hero-scene *,
+.motion-paused .hero-scene *::before,
+.motion-paused .hero-scene *::after {
+  animation: none !important;
+}
+.motion-paused .reveal-unit[data-reveal],
+.motion-paused .reveal-unit[data-reveal-item] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+.motion-paused .motion-button,
+.motion-paused .motion-button:focus-visible { translate: 0 0; }
+.motion-paused .product-image > img,
+.motion-paused .product-image:hover > img { transform: none; will-change: auto; }
+.motion-toggle:disabled { cursor: default; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-scene *, .hero-scene *::before, .hero-scene *::after { animation: none !important; }
+  body.motion-ready .reveal-unit[data-reveal],
+  body.motion-ready .reveal-unit[data-reveal-item] { opacity: 1; transform: none; transition: none; }
+  .motion-button { translate: 0 0 !important; }
+  .product-image > img, .product-image:hover > img { transform: none !important; will-change: auto; }
+}
+@media (pointer: coarse), (max-width: 760px) {
+  .motion-button { translate: 0 0 !important; }
+  .product-image > img, .product-image:hover > img { transform: none !important; will-change: auto; }
+}

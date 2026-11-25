@@ -26,4 +26,34 @@
   document.addEventListener('click', event => { if (!event.target.closest('.header')) closeMenu(); });
   matchMedia('(min-width: 761px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
   document.querySelector('#year').textContent = new Date().getFullYear();
+
+  const film = document.querySelector('.starry-film');
+  const filmPlay = document.querySelector('.film-play');
+  const filmError = document.querySelector('.film-error');
+  if (film && filmPlay) {
+    filmPlay.hidden = false;
+    filmPlay.addEventListener('click', async () => {
+      filmError.hidden = true;
+      filmPlay.hidden = true;
+      film.controls = true;
+      film.tabIndex = 0;
+      // The film is requested only after an explicit play action.
+      if (!film.getAttribute('src')) film.src = film.dataset.src;
+      film.focus({ preventScroll: true });
+      try { await film.play(); } catch (error) {
+        // Leaving the film may cancel a pending play request without an error.
+        if (error.name === 'AbortError') return;
+        filmError.hidden = false;
+        filmPlay.hidden = false;
+      }
+    });
+    film.addEventListener('error', () => { filmError.hidden = false; filmPlay.hidden = false; });
+    // Do not keep a manually started film playing after its viewer leaves.
+    document.addEventListener('visibilitychange', () => { if (document.hidden) film.pause(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        if (!entries[0].isIntersecting) film.pause();
+      }, { threshold: 0 }).observe(film);
+    }
+  }
 })();
