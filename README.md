@@ -9,7 +9,8 @@ Run `python3 -m http.server 4173` from this directory, then visit http://localho
 ## Editing
 
 - `index.html`: semantic content; Chinese default, English in `data-en` attributes. Existing bilingual copy is restored verbatim from pre-refresh revision `5bcf83b`; `data-copy` keys and `design/copy-baseline.json` record the source fields. Do not rewrite headings, descriptions, metrics, dates, or recruitment copy without an explicit request.
-- `assets/site.css`: responsive layout and VI design tokens.
+- `assets/site.css`: base layout and VI design tokens.
+- `assets/layout.css`: viewport-aware hero layout, isolated artwork space, shared image/list alignment, accessible link targets and focus contrast. Desktop hero proportions adapt to both viewport width and height; smaller screens flow naturally.
 - `assets/recruitment.js` + `assets/recruitment.css`: original recruitment dialog copy, keyboard access, and email copying.
 - `assets/site.js`: language selection, mobile navigation and the explicitly started official film. The page remains readable without JavaScript, with a direct film link as fallback.
 - `assets/motion.js` + `assets/effects.css`: independent scroll reveals, light-field response, slow orbital decoration, bounded button movement (4px), product depth (24px), and reading progress. Motion follows the system reduced-motion preference; the former manual toggle and its saved preference are no longer used. Touch screens do not use pointer effects. Hero animation pauses offscreen or when the tab is hidden. No runtime dependencies or continuous JavaScript rendering loop.

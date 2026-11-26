@@ -44,7 +44,12 @@
       film.controls = true;
       film.tabIndex = 0;
       // The film is requested only after an explicit play action.
-      if (!film.getAttribute('src')) film.src = film.dataset.src;
+      if (!film.getAttribute('src')) {
+        film.src = film.dataset.src;
+      } else if (film.error || film.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) {
+        // A failed media resource must be reloaded before play can retry it.
+        film.load();
+      }
       film.focus({ preventScroll: true });
       try { await film.play(); } catch (error) {
         // Leaving the film may cancel a pending play request without an error.

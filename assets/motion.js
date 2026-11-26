@@ -100,7 +100,7 @@
         scene.style.setProperty('--scene-scroll', '0px');
       } else if (sceneVisible && hero) {
         const heroBounds = hero.getBoundingClientRect();
-        const scrollOffset = clamp(-heroBounds.top / Math.max(heroBounds.height, 1), 0, 1) * 70;
+        const scrollOffset = clamp(-heroBounds.top / Math.max(heroBounds.height, 1), 0, 1) * 24;
         scene.style.setProperty('--pointer-x', `${pointerX.toFixed(2)}px`);
         scene.style.setProperty('--pointer-y', `${pointerY.toFixed(2)}px`);
         scene.style.setProperty('--scene-scroll', `${scrollOffset.toFixed(2)}px`);

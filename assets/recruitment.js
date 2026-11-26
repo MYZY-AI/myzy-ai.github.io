@@ -63,7 +63,15 @@
     document.body.style.overflow = previousOverflow ?? '';
     previousOverflow = undefined;
     resetCopyLabel();
-    if (trigger?.isConnected) trigger.focus({ preventScroll: true });
+    // The mobile menu closes before opening this dialog, so its link may
+    // no longer be a visible focus target when the dialog is dismissed.
+    const focusTarget = [
+      trigger,
+      document.querySelector('.menu-toggle'),
+      document.querySelector('.header .join-link[data-recruitment]')
+    ].find(element => element?.isConnected && element.getClientRects().length > 0 &&
+      getComputedStyle(element).visibility !== 'hidden');
+    focusTarget?.focus({ preventScroll: true });
     trigger = undefined;
   });
 
