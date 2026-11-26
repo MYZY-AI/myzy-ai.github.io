@@ -33,10 +33,6 @@
       "zh": "产品",
       "en": "Products"
     },
-    "nav.2.label": {
-      "zh": "进展",
-      "en": "Traction"
-    },
     "nav.3.label": {
       "zh": "团队",
       "en": "Team"
@@ -104,42 +100,6 @@
     "accessibility.starryImageAlt": {
       "zh": "星眠项目角色在樱花列车中手捧花束的插画",
       "en": "Starry project character holding flowers inside a cherry-blossom train"
-    },
-    "traction.label": {
-      "zh": "进展 / 已经启程",
-      "en": "Traction / already in motion"
-    },
-    "traction.title.lead": {
-      "zh": "一个全新品类，",
-      "en": "A new category,"
-    },
-    "traction.title.emphasis": {
-      "zh": "已经启程。",
-      "en": "already in motion."
-    },
-    "metrics.1.value": {
-      "zh": "$1M ARR",
-      "en": "$1M ARR"
-    },
-    "metrics.1.label": {
-      "zh": "商业验证",
-      "en": "Commercial validation"
-    },
-    "metrics.1.detail": {
-      "zh": "已实现 100 万美元年度经常性收入。",
-      "en": "The reported annual recurring revenue result."
-    },
-    "metrics.2.value": {
-      "zh": "100万+ 浏览量",
-      "en": "1M+ views"
-    },
-    "metrics.2.label": {
-      "zh": "星眠小红书内容",
-      "en": "Starry on Xiaohongshu"
-    },
-    "metrics.2.detail": {
-      "zh": "星眠相关小红书内容已获得超过 100 万次浏览。",
-      "en": "The reported view total for Starry-related Xiaohongshu content."
     },
     "team.label": {
       "zh": "团队 / 北京 + 上海",

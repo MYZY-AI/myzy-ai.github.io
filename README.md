@@ -12,7 +12,7 @@ Run `python3 -m http.server 4173` from this directory, then visit http://localho
 - `assets/site.css`: responsive layout and VI design tokens.
 - `assets/recruitment.js` + `assets/recruitment.css`: original recruitment dialog copy, keyboard access, and email copying.
 - `assets/site.js`: language selection, mobile navigation and the explicitly started official film. The page remains readable without JavaScript, with a direct film link as fallback.
-- `assets/motion.js` + `assets/effects.css`: independent scroll reveals, light-field response, slow orbital decoration, bounded button movement (4px), product depth (24px), and reading progress. Static mode is persistent and system reduced-motion is respected. Touch screens do not use pointer effects. Hero animation pauses offscreen or when the tab is hidden. No runtime dependencies or continuous JavaScript rendering loop.
+- `assets/motion.js` + `assets/effects.css`: independent scroll reveals, light-field response, slow orbital decoration, bounded button movement (4px), product depth (24px), and reading progress. Motion follows the system reduced-motion preference; the former manual toggle and its saved preference are no longer used. Touch screens do not use pointer effects. Hero animation pauses offscreen or when the tab is hidden. No runtime dependencies or continuous JavaScript rendering loop.
 - `assets/starry/`: official promotional film, compressed to 720p without changing its content, plus a poster extracted at 02:04. Video bytes load only after Play is selected; playback pauses offscreen or when the tab is hidden.
 - `assets/brand/`: original exported Figma brand assets. Do not redraw, distort or recolor the logo.
 - `assets/fonts/`: locally hosted open-source brand fonts and licenses. Chinese uses a system fallback unless HYQiHei is installed.
@@ -33,8 +33,10 @@ Run `python3 -m http.server 4173` from this directory, then visit http://localho
 
 ## Copy preservation (2026-11-26)
 
-The owner explicitly requested that all pre-refresh copy remain unchanged except Dokie-related content. Company vision, Starry description/status, company-level ARR, Starry views, team values, recruitment dialog, metadata and footer copy therefore match `5bcf83b` verbatim. These retained dates and figures are original website text, not newly researched claims. Removed: the Dokie product, its links and user metric, and the two-product headings. Added marketing prose from the visual refresh has been removed. New player, motion, and official-link labels are functional UI only.
+The owner explicitly requested that all pre-refresh copy remain unchanged except Dokie-related content. Company vision, Starry description/status, team values, recruitment dialog, metadata and footer copy therefore match `5bcf83b` verbatim. The retained launch status is original website text, not a newly researched claim. Removed: the Dokie product, its links and user metric, and the two-product headings. Added marketing prose from the visual refresh has been removed. New player and official-link labels are functional UI only.
 
 Keep the updated VI, layout, motion and official film independent from copy changes. A future request to update facts must be handled explicitly rather than bundled into a visual refresh.
 
 Run `python3 scripts/check-copy.py` before publishing to verify retained Chinese and English fields against the original copy baseline.
+
+The owner subsequently requested removal of the entire Traction section, all its navigation links, and the homepage static-mode toggle (2026-11-26). Those fields are intentionally excluded from the retained copy baseline. All remaining original copy is unchanged.

@@ -94,7 +94,7 @@ body.motion-ready .values li.reveal-unit.is-visible:hover {
   transform: translate3d(0, var(--product-shift, 0px), 0) scale(1.095);
 }
 
-/* A clear static state is shared by the manual switch and the system setting. */
+/* The system's reduced-motion preference controls the static state. */
 .motion-paused .hero-scene *,
 .motion-paused .hero-scene *::before,
 .motion-paused .hero-scene *::after {
@@ -109,7 +109,6 @@ body.motion-ready .values li.reveal-unit.is-visible:hover {
 .motion-paused .motion-button:focus-visible { translate: 0 0; }
 .motion-paused .product-image > img,
 .motion-paused .product-image:hover > img { transform: none; will-change: auto; }
-.motion-toggle:disabled { cursor: default; }
 @media (prefers-reduced-motion: reduce) {
   .hero-scene *, .hero-scene *::before, .hero-scene *::after { animation: none !important; }
   body.motion-ready .reveal-unit[data-reveal],

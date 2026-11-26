@@ -5,7 +5,6 @@
   const hero = document.querySelector('.hero');
   const scene = document.querySelector('.hero-scene');
   const productImage = document.querySelector('.product-image');
-  const toggle = document.querySelector('.motion-toggle');
   const revealGroups = [...document.querySelectorAll('[data-reveal]')];
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
@@ -13,7 +12,6 @@
   const desktop = matchMedia('(min-width: 761px)');
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
-  let userPaused = false;
   let frame = 0;
   let entranceFrame = 0;
   let revealObserver;
@@ -28,11 +26,7 @@
   let sheenX = 50;
   let sheenY = 50;
 
-  try {
-    userPaused = localStorage.getItem('muyan-motion-paused') === 'true';
-  } catch (_) { /* The page also works when storage is unavailable. */ }
-
-  const isPaused = () => userPaused || reducedMotion.matches;
+  const isPaused = () => reducedMotion.matches;
   const canMoveScene = () => !isPaused() && finePointer.matches && !coarsePointer.matches && desktop.matches;
 
   // Reveal independent pieces instead of hiding a whole, potentially tall,
@@ -180,11 +174,6 @@
     pointerX = 0;
     pointerY = 0;
     resetMagnet();
-    if (toggle) {
-      toggle.hidden = false;
-      toggle.setAttribute('aria-pressed', String(paused));
-      toggle.disabled = reducedMotion.matches;
-    }
     if (paused) hero?.classList.add('is-ready');
     prepareReveals();
     scheduleRender();
@@ -246,15 +235,6 @@
   } else {
     productVisible = true;
   }
-
-  toggle?.addEventListener('click', () => {
-    if (reducedMotion.matches) return;
-    userPaused = !userPaused;
-    try {
-      localStorage.setItem('muyan-motion-paused', String(userPaused));
-    } catch (_) { /* Pausing is still available for the current visit. */ }
-    updatePreferences();
-  });
 
   window.addEventListener('scroll', () => {
     resetMagnet();
