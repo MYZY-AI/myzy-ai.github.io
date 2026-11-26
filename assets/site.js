@@ -2,7 +2,7 @@
   const languageButton = document.querySelector('.language');
   const menuButton = document.querySelector('.menu-toggle');
   const mobileNav = document.querySelector('#mobile-nav');
-  let language = 'zh';
+  let language = 'en';
   const updateMenuLabel = () => {
     const open = menuButton.getAttribute('aria-expanded') === 'true';
     menuButton.setAttribute('aria-label', language === 'en' ? (open ? 'Close navigation' : 'Open navigation') : (open ? '关闭导航' : '打开导航'));
@@ -25,7 +25,9 @@
   }
   languageButton.hidden = false;
   menuButton.hidden = false;
-  try { if (localStorage.getItem('muyan-language') === 'en') setLanguage('en'); } catch (_) {}
+  let initialLanguage = 'en';
+  try { if (localStorage.getItem('muyan-language') === 'zh') initialLanguage = 'zh'; } catch (_) {}
+  setLanguage(initialLanguage);
   languageButton.addEventListener('click', () => setLanguage(language === 'zh' ? 'en' : 'zh'));
   menuButton.addEventListener('click', () => { const open = menuButton.getAttribute('aria-expanded') !== 'true'; menuButton.setAttribute('aria-expanded', String(open)); mobileNav.hidden = !open; updateMenuLabel(); });
   mobileNav.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });

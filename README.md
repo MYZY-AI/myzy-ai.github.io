@@ -8,7 +8,7 @@ Run `python3 -m http.server 4173` from this directory, then visit http://localho
 
 ## Editing
 
-- `index.html`: semantic content; Chinese default, English in `data-en` attributes. Existing bilingual copy is restored verbatim from pre-refresh revision `5bcf83b`; `data-copy` keys and `design/copy-baseline.json` record the source fields. Do not rewrite headings, descriptions, metrics, dates, or recruitment copy without an explicit request.
+- `index.html`: semantic content; English by default, including without JavaScript. Existing bilingual copy remains in `data-zh` and `data-en` attributes; an explicitly selected language is remembered. The copy is restored verbatim from pre-refresh revision `5bcf83b`; `data-copy` keys and `design/copy-baseline.json` record the source fields. Do not rewrite headings, descriptions, metrics, dates, or recruitment copy without an explicit request.
 - `assets/site.css`: base layout and VI design tokens.
 - `assets/layout.css`: viewport-aware hero layout, isolated artwork space, shared image/list alignment, accessible link targets and focus contrast. Desktop hero proportions adapt to both viewport width and height; smaller screens flow naturally.
 - `assets/recruitment.js` + `assets/recruitment.css`: original recruitment dialog copy, keyboard access, and email copying.

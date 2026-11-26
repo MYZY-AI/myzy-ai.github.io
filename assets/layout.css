@@ -16,7 +16,7 @@ html[lang=en] .original-copy .hero h1{font-size:clamp(42px,min(4.6vw,7.7svh),72p
 .original-copy .hero-actions{gap:26px}
 .original-copy .hero-actions .text-link{display:inline-flex;align-items:center;min-height:44px}
 .original-copy .hero-actions .text-link:hover{color:var(--coral-text)}
-.original-copy .hero-scene{position:relative;inset:auto;display:grid;grid-template-rows:minmax(0,1fr) 16px;gap:10px;align-self:stretch;width:100%;height:auto;min-width:0;min-height:0;--orb-size:min(72cqw,70cqh,470px)}
+.original-copy .hero-scene{position:relative;inset:auto;display:grid;grid-template-rows:minmax(0,1fr);align-self:stretch;width:100%;height:auto;min-width:0;min-height:0;--orb-size:min(72cqw,70cqh,470px)}
 .scene-art{position:relative;min-width:0;min-height:0;container-type:size}
 .original-copy .scene-halo{inset:0;width:100%;height:100%;background:radial-gradient(ellipse at 56% 52%,#ff8b7e4a,transparent 65%)}
 .original-copy .scene-orb{left:50%;top:50%;width:var(--orb-size)}
@@ -24,8 +24,6 @@ html[lang=en] .original-copy .hero h1{font-size:clamp(42px,min(4.6vw,7.7svh),72p
 .original-copy .scene-satellite{left:14%;top:72%;width:calc(var(--orb-size) * .095);height:calc(var(--orb-size) * .095)}
 .original-copy .hero-symbol{left:50%;top:50%;width:calc(var(--orb-size) * .51);height:auto;aspect-ratio:176.471 / 169.219;transform:translate(-50%,-50%)}
 .original-copy .hero-symbol img{width:100%;height:auto;max-width:100%}
-.original-copy .scene-caption{position:static;inset:auto;justify-self:center;display:block;height:16px;font-family:var(--sans);font-style:normal;font-size:10px;line-height:16px;letter-spacing:.1em;color:#6f4033}
-.original-copy .scene-caption>span:last-child{display:block;font-family:inherit;font-style:inherit;font-size:inherit;letter-spacing:inherit}
 .original-copy .hero-bottom{display:block;padding:22px 0 24px;margin:0;line-height:1.75}
 .original-copy .hero-belief{display:grid;grid-template-columns:160px minmax(0,1fr);gap:28px;align-items:baseline;max-width:none;width:100%}
 .original-copy .hero-belief>span{font-size:12px;letter-spacing:.03em;line-height:1.75}
