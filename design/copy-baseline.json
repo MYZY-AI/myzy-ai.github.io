@@ -1,0 +1,241 @@
+{
+  "source_revision": "5bcf83b",
+  "copy": {
+    "document.description": {
+      "zh": "MUYAN 创造原生于 AI 的游戏、娱乐与社交体验，让拥有个性、记忆和生命轨迹的 AI 朋友走进每个人的生活。",
+      "en": "MUYAN creates AI-native games, entertainment, and social experiences—building AI friends with personality, memory, and a life of their own."
+    },
+    "document.title": {
+      "zh": "MUYAN — 创造 AI 朋友",
+      "en": "MUYAN — Creating AI Friends"
+    },
+    "document.ogDescription": {
+      "zh": "遇见明日的朋友。",
+      "en": "Meet the friends of tomorrow."
+    },
+    "accessibility.skipToContent": {
+      "zh": "跳转到主要内容",
+      "en": "Skip to content"
+    },
+    "accessibility.brandHome": {
+      "zh": "MUYAN 首页",
+      "en": "MUYAN home"
+    },
+    "accessibility.primaryNavigation": {
+      "zh": "主导航",
+      "en": "Primary navigation"
+    },
+    "nav.0.label": {
+      "zh": "愿景",
+      "en": "Vision"
+    },
+    "nav.1.label": {
+      "zh": "产品",
+      "en": "Products"
+    },
+    "nav.2.label": {
+      "zh": "进展",
+      "en": "Traction"
+    },
+    "nav.3.label": {
+      "zh": "团队",
+      "en": "Team"
+    },
+    "actions.joinUs": {
+      "zh": "加入我们",
+      "en": "Join us"
+    },
+    "hero.eyebrow": {
+      "zh": "AI 娱乐 / 社交 / 游戏",
+      "en": "AI entertainment / social / games"
+    },
+    "hero.title.lead": {
+      "zh": "遇见",
+      "en": "Meet the friends"
+    },
+    "hero.title.emphasis": {
+      "zh": "明日的朋友。",
+      "en": "of tomorrow."
+    },
+    "hero.body": {
+      "zh": "我们创造拥有个性、记忆与独立生命轨迹的 AI 朋友。",
+      "en": "We create AI companions with personality, memory, and a life of their own."
+    },
+    "actions.exploreProducts": {
+      "zh": "探索我们的产品",
+      "en": "Explore our products"
+    },
+    "hero.beliefLabel": {
+      "zh": "01 / 我们的信念",
+      "en": "01 / Our belief"
+    },
+    "hero.beliefCard": {
+      "zh": "AI 会以独立个体的形式出现在未来社会，每个人都会拥有自己的 AI 朋友。",
+      "en": "AI will emerge as individuals in the society of the future. Everyone will have an AI friend."
+    },
+    "belief.label": {
+      "zh": "我们的信念",
+      "en": "Our belief"
+    },
+    "belief.title": {
+      "zh": "我们相信，AI 会以独立个体的形式出现在未来的社会中。",
+      "en": "We believe AI will emerge as individuals in the society of the future."
+    },
+    "belief.body": {
+      "zh": "每个人都会拥有自己的 AI 朋友。",
+      "en": "Everyone will have an AI friend of their own."
+    },
+    "products.1.category": {
+      "zh": "AI 浪漫关系与情感陪伴",
+      "en": "AI romance & emotional companionship"
+    },
+    "products.1.name": {
+      "zh": "星眠",
+      "en": "Starry"
+    },
+    "products.1.description": {
+      "zh": "一个关于情感连接、鲜活角色与互动叙事的新世界，每段关系都因你而不同。",
+      "en": "A new world of emotional connection, expressive characters, and interactive stories that feel personal."
+    },
+    "products.1.status": {
+      "zh": "预计 2026 年第四季度上线",
+      "en": "Coming Q4 2026"
+    },
+    "accessibility.starryImageAlt": {
+      "zh": "星眠项目角色在樱花列车中手捧花束的插画",
+      "en": "Starry project character holding flowers inside a cherry-blossom train"
+    },
+    "traction.label": {
+      "zh": "进展 / 已经启程",
+      "en": "Traction / already in motion"
+    },
+    "traction.title.lead": {
+      "zh": "一个全新品类，",
+      "en": "A new category,"
+    },
+    "traction.title.emphasis": {
+      "zh": "已经启程。",
+      "en": "already in motion."
+    },
+    "metrics.1.value": {
+      "zh": "$1M ARR",
+      "en": "$1M ARR"
+    },
+    "metrics.1.label": {
+      "zh": "商业验证",
+      "en": "Commercial validation"
+    },
+    "metrics.1.detail": {
+      "zh": "已实现 100 万美元年度经常性收入。",
+      "en": "The reported annual recurring revenue result."
+    },
+    "metrics.2.value": {
+      "zh": "100万+ 浏览量",
+      "en": "1M+ views"
+    },
+    "metrics.2.label": {
+      "zh": "星眠小红书内容",
+      "en": "Starry on Xiaohongshu"
+    },
+    "metrics.2.detail": {
+      "zh": "星眠相关小红书内容已获得超过 100 万次浏览。",
+      "en": "The reported view total for Starry-related Xiaohongshu content."
+    },
+    "team.label": {
+      "zh": "团队 / 北京 + 上海",
+      "en": "Team / Beijing + Shanghai"
+    },
+    "team.title.lead": {
+      "zh": "创造这些",
+      "en": "The people behind"
+    },
+    "team.title.emphasis": {
+      "zh": "朋友的人。",
+      "en": "the friends."
+    },
+    "team.body": {
+      "zh": "我们推崇信任、平等、扁平、务实的团队文化。",
+      "en": "We believe in a team culture built on trust, equality, flat collaboration, and pragmatism."
+    },
+    "accessibility.teamPhotoAlt": {
+      "zh": "创意团队围桌协作的纪实画面",
+      "en": "A creative team collaborating around a table"
+    },
+    "team.principles.0": {
+      "zh": "正直真诚",
+      "en": "Integrity & sincerity"
+    },
+    "team.principles.1": {
+      "zh": "真实表达",
+      "en": "Speak with honesty"
+    },
+    "team.principles.2": {
+      "zh": "用户优先",
+      "en": "Users first"
+    },
+    "team.principles.3": {
+      "zh": "行胜于言",
+      "en": "Actions over words"
+    },
+    "team.principles.4": {
+      "zh": "追求极致",
+      "en": "Pursue excellence"
+    },
+    "contact.label": {
+      "zh": "加入这场创造",
+      "en": "Join the mission"
+    },
+    "contact.title.lead": {
+      "zh": "一起，创造一个",
+      "en": "Come build someone"
+    },
+    "contact.title.emphasis": {
+      "zh": "令人难忘的朋友。",
+      "en": "unforgettable."
+    },
+    "contact.body": {
+      "zh": "和我们一起，创造下一代 AI 游戏、娱乐与社交体验。",
+      "en": "Help us create the next generation of AI games, entertainment, and social experiences."
+    },
+    "footer.tagline": {
+      "zh": "创造 AI 朋友。",
+      "en": "Creating AI friends."
+    },
+    "accessibility.footerNavigation": {
+      "zh": "页脚导航",
+      "en": "Footer navigation"
+    },
+    "footer.copyright": {
+      "zh": "© 2026 MUYAN. 保留所有权利。",
+      "en": "© 2026 MUYAN. All rights reserved."
+    },
+    "contact.dialog.close": {
+      "zh": "关闭投递弹窗",
+      "en": "Close recruitment dialog"
+    },
+    "contact.dialog.label": {
+      "zh": "开放投递 / MUYAN",
+      "en": "Open call / MUYAN"
+    },
+    "contact.dialog.title": {
+      "zh": "来和我们一起，创造未来的朋友。",
+      "en": "Come build the next kind of friendship."
+    },
+    "contact.dialog.body": {
+      "zh": "如果你对 AI、故事、游戏，或人与智能体的新关系充满好奇，我们很想认识你。",
+      "en": "If you care about AI, stories, games, or the future of connection, we’d love to hear from you."
+    },
+    "contact.dialog.encouragement": {
+      "zh": "欢迎把简历、作品集，或一段你想创造什么的话发给我们。比起完美的自我介绍，我们更在意你的好奇心与行动力。",
+      "en": "Send us your résumé, portfolio, or simply a note about what you want to create. Curiosity and conviction matter more than a perfect introduction."
+    },
+    "contact.dialog.emailLabel": {
+      "zh": "投递邮箱",
+      "en": "Send your application to"
+    },
+    "contact.dialog.copyEmail": {
+      "zh": "复制邮箱",
+      "en": "Copy email"
+    }
+  }
+}

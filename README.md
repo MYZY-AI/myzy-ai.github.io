@@ -8,8 +8,9 @@ Run `python3 -m http.server 4173` from this directory, then visit http://localho
 
 ## Editing
 
-- `index.html`: semantic content; Chinese default, English in `data-en` attributes.
+- `index.html`: semantic content; Chinese default, English in `data-en` attributes. Existing bilingual copy is restored verbatim from pre-refresh revision `5bcf83b`; `data-copy` keys and `design/copy-baseline.json` record the source fields. Do not rewrite headings, descriptions, metrics, dates, or recruitment copy without an explicit request.
 - `assets/site.css`: responsive layout and VI design tokens.
+- `assets/recruitment.js` + `assets/recruitment.css`: original recruitment dialog copy, keyboard access, and email copying.
 - `assets/site.js`: language selection, mobile navigation and the explicitly started official film. The page remains readable without JavaScript, with a direct film link as fallback.
 - `assets/motion.js` + `assets/effects.css`: independent scroll reveals, light-field response, slow orbital decoration, bounded button movement (4px), product depth (24px), and reading progress. Static mode is persistent and system reduced-motion is respected. Touch screens do not use pointer effects. Hero animation pauses offscreen or when the tab is hidden. No runtime dependencies or continuous JavaScript rendering loop.
 - `assets/starry/`: official promotional film, compressed to 720p without changing its content, plus a poster extracted at 02:04. Video bytes load only after Play is selected; playback pauses offscreen or when the tab is hidden.
@@ -30,4 +31,10 @@ Run `python3 -m http.server 4173` from this directory, then visit http://localho
 - Source for the embedded film: https://cos.starry.games/web/videos/video_home_page.13220811aeda4c69.mp4
 - Recruiting email retained from the previous public company website: joinus@myzy.ai
 
-The public-launch text and registration CTAs should be reviewed when the game launches. Product copy describes verified AI conversations, a personal diary, hotel management, and stories across different worlds. AI is described in the context of interaction, consistent with the official Xiaohongshu profile. No user counts, revenue, internal testing data or player testimonials are published.
+## Copy preservation (2026-11-26)
+
+The owner explicitly requested that all pre-refresh copy remain unchanged except Dokie-related content. Company vision, Starry description/status, company-level ARR, Starry views, team values, recruitment dialog, metadata and footer copy therefore match `5bcf83b` verbatim. These retained dates and figures are original website text, not newly researched claims. Removed: the Dokie product, its links and user metric, and the two-product headings. Added marketing prose from the visual refresh has been removed. New player, motion, and official-link labels are functional UI only.
+
+Keep the updated VI, layout, motion and official film independent from copy changes. A future request to update facts must be handled explicitly rather than bundled into a visual refresh.
+
+Run `python3 scripts/check-copy.py` before publishing to verify retained Chinese and English fields against the original copy baseline.
